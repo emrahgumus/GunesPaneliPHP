@@ -13,7 +13,9 @@ if(is_numeric($akim) && is_numeric($gerilim) && is_numeric($sicaklik) && is_nume
 
     $db->query("INSERT INTO veriler(akim, gerilim, sicaklik, nem, tarih) 
                 VALUES('$akim','$gerilim','$sicaklik','$nem','".date('Y-m-d H:i:s')."')");
-    echo "1_".$db->insert_id;
+
+    echo ($db->insert_id > 0) ? '1' : 'err';
+
 
 }else{
     echo "Tum alanlarin dogru gonderildiginden emin olun!";

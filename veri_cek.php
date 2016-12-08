@@ -6,8 +6,6 @@ include './sys/db.php';
 
 
 
-
-
 switch ($_REQUEST['goster']){
 
     case 'tarih_araligi':
