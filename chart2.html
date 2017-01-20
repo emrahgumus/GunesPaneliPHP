@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Güneş Paneli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--STYLES
+    <link rel="stylesheet" href="styles/importer.css"> -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
+<script src="js/jquery-3.1.1.min.js"></script>
+    <!--STYLES END
+    <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>-->
+	<script type="text/javascript">
+    $(document).ready(function(){
+		
+		$("#isi").click(function(){
+		if(    $("#isi").is(":checked")==true )
+		{
+				
+				$("#chart_isi_dis").css({
+				 display:"block",
+				 })
+				 
+		}
+		else
+		{
+				 $("#chart_isi_dis").css({
+				 display:"none",
+				 })
+		}
+		});
+		$("#sicaklik").click(function(){
+		if(    $("#sicaklik").is(":checked")==true )
+		{
+				
+				$("#chart_sicaklik").css({
+				 display:"block",
+				 })
+				 
+		}
+		else
+		{
+				 $("#chart_sicaklik").css({
+				 display:"none",
+				 })
+		}
+		});
+		$("#nem").click(function(){
+		if(    $("#nem").is(":checked")==true )
+		{
+				
+				$("#chart_nem").css({
+				 display:"block",
+				 })
+				 
+		}
+		else
+		{
+				 $("#chart_nem").css({
+				 display:"none",
+				 })
+		}
+		});
+		
+		
+		});
+</script>
+</head>
+
+<body ng-app="examples" id="top" >
+
+<!-- Default home page -->
+<script type="text/javascript">
+setTimeout(function sunrise () {
+    document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
+}, 0);
+</script>
+
+<div class="default-page">
+    <div class="header">
+        <h1 id="main-title" class="container">Güneş Paneli</h1>
+        <h3 class="container">Online güneş paneli sistemi</h3>
+    </div>
+    <div class="main container clearfix">
+
+        <div class="links" ng-controller="SolButonlar">
+            
+			</br>
+            
+			<select MULTIPLE name="music" size="40" width="100" color="#118798">
+			
+				<option value="Ankara">Ankara
+				<option>İzmir
+				<option>Hatay
+				<option>Bursa
+				<option>Adana
+				<option>Adıyaman
+				<option>Afyonkarahisar
+				<option>Ağrı
+				<option>Amasya
+				<option>Ankara
+				<option>Antalya
+				<option>Artvin
+				<option>Aydın
+				<option>Balıkesir
+				<option>Bilecik
+				<option>Bingöl
+				<option>Bitlis
+				<option>Bolu
+				<option>Burdur
+				<option>Bursa
+				<option>Çanakkale
+				<option>Çankırı
+				<option>Çorum
+				<option>Denizli
+				<option>Diyarbakır
+				<option>Edirne
+				<option>Elazığ
+				<option>Erzincan
+				<option>Erzurum
+				<option>Eskişehir
+				<option>Gaziantep
+				<option>Giresun
+				<option>Gümüşhane
+				<option>Hakkâri
+				<option>Hatay
+				<option>Isparta
+				<option>Mersin
+				<option>İstanbul
+				<option>İzmir
+				<option>Kars
+				<option>Kastamonu
+				<option>Kayseri
+				<option>Kırklareli
+				<option>Kırşehir
+				<option>Kocaeli
+				<option>Konya
+				<option>Kütahya
+				<option>Malatya
+				<option>Manisa
+				<option>Kahramanmaraş
+				<option>Mardin
+				<option>Muğla
+				<option>Muş
+				<option>Nevşehir
+				<option>Niğde
+				<option>Ordu
+				<option>Rize
+				<option>Sakarya
+				<option>Samsun
+				<option>Siirt
+				<option>Sinop
+				<option>Sivas
+				<option>Tekirdağ
+				<option>Tokat
+				<option>Trabzon
+				<option>Tunceli
+				<option>Şanlıurfa
+				<option>Uşak
+				<option>Van
+				<option>Yozgat
+				<option>Zonguldak
+				<option>Aksaray
+				<option>Bayburt
+				<option>Karaman
+				<option>Kırıkkale
+				<option>Batman
+				<option>Şırnak
+				<option>Bartın
+				<option>Ardahan
+				<option>Iğdır
+				<option>Yalova
+				<option>Karabük
+				<option>Kilis
+				<option>Osmaniye
+				<option>Düzce
+			
+			</select>
+        </div>
+
+        <ul class="getting-started">
+            
+
+            <li class="clearfix">
+                <div class="step">
+			<table style="width:100%" border="1" bordercolor="#118798">
+			<tr>
+					<td colspan="13" align="center">	Uzun Yıllar İçinde Gerçekleşen Ortalama Değerler (1950 - 2015)</td>
+					
+				</tr>
+				<tr>
+				
+					<th width=”300″>Kocaeli</th>
+					<th>Ocak</th> 
+					<th>Şubat</th>
+					<th>Mart</th>
+					<th>Nisan</th>
+					<th>Mayıs</th>
+					<th>Haziran</th>
+					<th>Temmuz</th>
+					<th>Ağustos</th>
+					<th>Eylül</th>
+					<th>Ekim</th>
+					<th>Kasım</th>
+					<th>Aralık</th>
+					
+				</tr>
+				
+				<tr>
+					<td width=”300″>Ortalama Sıcaklık (°C)</td>
+					<td>42</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>65</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>45</td> 
+					<td>94</td>
+					<td>65</td>
+					<td>44</td> 
+					<td>94</td>
+					<td>94</td>
+				</tr>
+				<tr>
+					<td width=”300″>Ortalama En Yüksek Sıcaklık (°C)</td>
+					<td>42</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>65</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>45</td> 
+					<td>94</td>
+					<td>65</td>
+					<td>44</td> 
+					<td>94</td>
+					<td>94</td>
+				</tr>
+				<tr>
+					<td width=”300″>Ortalama En Düşük Sıcaklık (°C)</td>
+					<td>42</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>65</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>45</td> 
+					<td>94</td>
+					<td>65</td>
+					<td>44</td> 
+					<td>94</td>
+					<td>94</td>
+				</tr>
+				<tr>
+					<td width=”300″>Ortalama Güneşlenme Süresi (saat)</td>
+					<td>42</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>65</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>45</td> 
+					<td>94</td>
+					<td>65</td>
+					<td>44</td> 
+					<td>94</td>
+					<td>94</td>
+				</tr>
+				<tr>
+					<td width=”300″> Ortalama Yağışlı Gün Sayısı</td>
+					<td>42</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>65</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>45</td> 
+					<td>94</td>
+					<td>65</td>
+					<td>44</td> 
+					<td>94</td>
+					<td>94</td>
+				</tr>
+				<tr>
+					<td width=”300″> Aylık Toplam Yağış Miktarı Ortalaması (kg/m2)</td>
+					<td>42</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>65</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>45</td> 
+					<td>94</td>
+					<td>65</td>
+					<td>44</td> 
+					<td>94</td>
+					<td>94</td>
+				</tr>
+				<tr>
+					<td width=”300″ colspan="13" align="center"> Uzun Yıllar İçinde Gerçekleşen En Yüksek ve En Düşük Değerler (1950 - 2015)*</td>
+					
+				</tr>
+				<tr>
+					<td width=”300″> En Yüksek Sıcaklık (°C)</td>
+					<td>42</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>65</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>45</td> 
+					<td>94</td>
+					<td>65</td>
+					<td>44</td> 
+					<td>94</td>
+					<td>94</td>
+				</tr>
+				<tr>
+					<td width=”300″>En Düşük Sıcaklık (°C) </td>
+					<td>42</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>65</td> 
+					<td>94</td>
+					<td>56</td>
+					<td>45</td> 
+					<td>94</td>
+					<td>65</td>
+					<td>44</td> 
+					<td>94</td>
+					<td>94</td>
+				</tr>
+			</table>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="500" height="300"  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"> 
+ <param name="movie" value="http://turkiyem.bidibidi.com/ililturkiye.swf" />  <param name="quality" value="high" />  
+ <param name="wmode" value="transparent">  
+ <embed src="http://turkiyem.bidibidi.com/ililturkiye.swf" quality="high" width="700" height="300" wmode="transparent"  type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />  
+ </object> </body></html>
+                </div>
+            </li>
+            <li class="clearfix">
+                <div class="step">
+                    <p><a href="chart.html">Önceki Sayfaya Dönmek İçin Tıklayın</a><a href="http://sailsjs.org/#!/documentation/concepts/Policies"></a> <a href="http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html"></a><a target="_blank" href="http://sailsjs.org/#!/documentation/concepts/Controllers?q=actions"></a></p>
+
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+
+<!--<script src="http://30.10.21.40:4000/socket.io/socket.io.js"></script>-->
+
+<!--Chart-->
+<script src="js/angular.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/ui-bootstrap-tpls.min.js"></script>
+<script src="js/angular-chart.js"></script>
+<script src="js/app.js"></script>
+<!--#Chart-->
+
+
+<!--SCRIPTS--
+<script src="/js/dependencies/sails.io.js"></script>--
+<script src="/js/jquery-3.1.1.min.js"></script>-->
+<!--SCRIPTS END-->
+</body>
+</html>

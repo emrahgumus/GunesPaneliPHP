@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Güneş Paneli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--STYLES
+    <link rel="stylesheet" href="styles/importer.css"> -->
+    <link rel="stylesheet" href="styles/style.css">
+
+<script src="js/jquery-3.1.1.min.js"></script>
+    <!--STYLES END
+    <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>-->
+	<script type="text/javascript">
+    $(document).ready(function(){
+
+		$("#isi").click(function(){
+		if(    $("#isi").is(":checked")==true )
+		{
+
+				$("#chart_isi_dis").css({
+				 display:"block",
+				 })
+
+		}
+		else
+		{
+				 $("#chart_isi_dis").css({
+				 display:"none",
+				 })
+		}
+		});
+		$("#sicaklik").click(function(){
+		if(    $("#sicaklik").is(":checked")==true )
+		{
+
+				$("#chart_sicaklik").css({
+				 display:"block",
+				 })
+
+		}
+		else
+		{
+				 $("#chart_sicaklik").css({
+				 display:"none",
+				 })
+		}
+		});
+		$("#nem").click(function(){
+		if(    $("#nem").is(":checked")==true )
+		{
+
+				$("#chart_nem").css({
+				 display:"block",
+				 })
+
+		}
+		else
+		{
+				 $("#chart_nem").css({
+				 display:"none",
+				 })
+		}
+		});
+
+		$("#gerilim").click(function(){
+		if(    $("#gerilim").is(":checked")==true )
+		{
+
+				$("#chart_gerilim").css({
+				 display:"block",
+				 })
+
+		}
+		else
+		{
+				 $("#chart_gerilim").css({
+				 display:"none",
+				 })
+		}
+		});
+
+
+		});
+</script>
+</head>
+
+<body ng-app="examples" id="top" >
+
+<!-- Default home page -->
+<script type="text/javascript">
+setTimeout(function sunrise () {
+    document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
+}, 0);
+</script>
+
+<div class="default-page">
+    <div class="header">
+        <h1 id="main-title" class="container">Güneş Paneli</h1>
+        <h3 class="container">Online güneş paneli sistemi</h3>
+    </div>
+    <div class="main container clearfix" ng-controller="anaSayfa">
+
+        <div class="links" ><!--ng-controller="SolButonlar"-->
+            {{sehir}}
+            <ul class="link-list">
+                <h4>Görüntüleme</h4>
+                <li><label><input type="radio" name="goruntuleme" value="a"/> Anlık</label></li>
+				<input type="date" value="2016-10-28">
+                <li><label><input type="radio" name="goruntuleme" value="t"/> Tarih Aralığı</label></li>
+				 <li>
+                    <input type="date" value="2016-10-28">
+					<input type="date" value="2016-10-30">
+                </li>
+
+
+				<li><label><input type="checkbox" name="goruntuleme2" value="b"/> Belirli Saat</label></li>
+				<li><label><input type="textbox" name="goruntulme2" value="12:00"/> </label></li>
+
+
+
+                <h4>Şu İllerde Göster</h4>
+
+
+                <li><label ng-click="sehirGoster('0')" ><input type="checkbox" name="seh" id="seh1" value="0"/> İstanbul</label></li>
+                <li><label ng-click="sehirGoster('1')"><input type="checkbox" name="seh" id="seh2" value="1"/> Ankara</label></li>
+                <label ng-click="sehirGoster('2')"><input type="checkbox" name="seh" id="seh3" value="2"/> İzmir</label></li>
+                <li><label ng-click="sehirGoster('3')"><input type="checkbox" name="seh" id="seh4" value="3"/> Hatay</label></li>
+
+
+                <h4>Şunları Göster</h4>
+                <li><label><input type="checkbox" name="goster" id="isi" value="isi" checked="false" /> Işık</label></li>
+                <li><label><input type="checkbox" name="goster" id="sicaklik" value="sicaklik" checked="true" /> Sıcaklık</label></li>
+                <li><label><input type="checkbox" name="goster" id="nem" value="nem" checked="true" /> Nem</label></li>
+				 <li><label><input type="checkbox" name="goster" id="gerilim" value="gerilim" checked="true"/> Gerilim</label></li>
+				  <li><label><input type="checkbox" name="goster" id="akim" value="akım" checked="true"/> Akım</label></li>
+
+                <li><input type="button" name="gonder" value="UYGULA" style="display:block;width:100%;padding:10px;margin-top:10px;"/></li>
+            </ul></br>
+			<h4><a href="chart2.html" >Ayrıntılı İl İstatistik İçin Tıkla<a></h4>
+
+
+				</select>
+        </div>
+
+        <ul class="getting-started">
+            <li class="clearfix">
+                <div class="step">
+                    <div id="chart_isi_dis">
+
+
+                        <div class="col-lg-6 col-sm-12" id="en-yuksek-isik-grafigi"  ><!--ng-controller="EnYuksekIsıkCtrl"-->
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">En Yüksek Işık Grafiği</div>
+                                <div class="panel-body">
+                                  <div id="en-yuksek-isik-grafigi-chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                                    <!--<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>-->
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">En Düşük Işık Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">Ortalama Işık Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </li>
+			<li class="clearfix">
+                <div class="step">
+                    <div id="chart_sicaklik">
+
+
+                        <div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">En Yüksek Sıcaklık Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">En Düşük Sıcaklık Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div><div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">Ortalama Sıcaklık Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </li>
+
+			<li class="clearfix">
+                <div class="step">
+                    <div id="chart_nem">
+
+
+                        <div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">En Yüksek Nem Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">En Düşük Nem Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">Ortalama Nem Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </li>
+
+
+			<li class="clearfix">
+                <div class="step">
+                    <div id="chart_gerilim">
+
+
+                        <div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">En Yüksek Gerilim Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">En Düşük Gerilim Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl" >
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align:center;">Ortalama Gerilim Grafiği</div>
+                                <div class="panel-body">
+                                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                            chart-click="onClick" chart-hover="onHover" chart-series="series" chart-options="options"
+                                            chart-dataset-override="datasetOverride"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </li>
+
+            <li class="clearfix">
+                <div class="step">
+
+
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+$(function () {
+
+  $.post('http://emrahgumus.com/GunesPaneli/veri_cek2.php',{}, function(e){
+    console.log(e);
+      Highcharts.chart('en-yuksek-isik-grafigi-chart', {
+      title: {
+          text: 'En Yüksek Işık Grafiği',
+          x: -20 //center
+      },
+      subtitle: {
+          text: '..',
+          x: -20
+      },
+      xAxis: {
+          categories: ['1', '2', '3', '4', 'May', 'Jun',
+              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      yAxis: {
+          title: {
+              text: 'Temperature (°C)'
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
+      },
+      tooltip: {
+          valueSuffix: '°C'
+      },
+      legend: {
+          layout: 'vertical',
+          align: 'right',
+          verticalAlign: 'middle',
+          borderWidth: 0
+      },
+      series: e
+    });
+  },'json');
+});
+</script>
+
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+</body>
+</html>
