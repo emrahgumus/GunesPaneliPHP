@@ -336,7 +336,7 @@ setTimeout(function sunrise () {
 
 $(function () {
 
-  $.post('http://emrahgumus.com/GunesPaneli/veri_cek2.php',{}, function(e){
+  $.post('api/veri_cek.php',{}, function(e){
     console.log(e);
       Highcharts.chart('en-yuksek-isik-grafigi-chart', {
       title: {
